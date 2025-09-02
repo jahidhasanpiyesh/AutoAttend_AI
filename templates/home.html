@@ -1,11 +1,19 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Attendance System</title>
+
+    {% block title %}
+        <title>Student Attendance System</title>
+    {% endblock %}
+    
     <!-- Include Font Awesome for icons -->
+    {% block link %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    {% end block %}
+    
     <style>
         /* Global Styles */
         body, html {
@@ -186,7 +194,7 @@
             <p>Register Students, manage attendance, and integrate AI for seamless recognition.</p>
             <div class="buttons">
                 <div class="card">
-                    <a href=""><i class="fas fa-user-plus"></i></a>
+                    <a href="{% url 'register_student' %}"><i class="fas fa-user-plus"></i></a>
                     <p>Register Student</p>
                 </div>
                 <div class="card">
