@@ -131,22 +131,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>Employee List</h1>
+        <h1>Student List</h1>
         <table>
             <thead>
                 <tr>
-                    <th>Employee ID</th>
+                    <th>Student ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Phone Number</th>
-                    <th>Designation</th>
+                    <th>Section</th>
                     <th>Department</th>
                     <th>Authorized</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                {% for emp in employees %}
+                <!-- {% for emp in employees %}
                 <tr>
                     <td>{{ emp.employee_id }}</td>
                     <td>{{ emp.name }}</td>
@@ -159,7 +159,7 @@
                         <a href="{% url 'emp-authorize' pk=emp.pk %}">View</a>
                     </td>
                 </tr>
-                {% endfor %}
+                {% endfor %} -->
             </tbody>
         </table>
     </div>

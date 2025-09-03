@@ -57,6 +57,10 @@ def register_student(request):
             return render(request, 'register_student.html')
 
     return render(request, 'register_student.html')
-
+# all attend student info showing
 def all_student_list(request):
     return render(request, 'all_student_list.html')
+
+# Success view after capturing student information and image
+def register_success(request):
+    return render(request, 'register_success.html')
