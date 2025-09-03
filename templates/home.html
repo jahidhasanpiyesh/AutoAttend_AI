@@ -176,8 +176,8 @@
 <body>
     <div class="sidebar">
         <h2>AI Dashboard</h2>
-        <a href=""><i class="fas fa-user-plus"></i> Student Registration</a>
-        <a href=""><i class="fas fa-user-friends"></i> View Student</a>
+        <a href="{% url 'register_student' %}"><i class="fas fa-user-plus"></i> Student Registration</a>
+        <a href="{% url 'all_student_list' %}"><i class="fas fa-user-friends"></i> View Student</a>
         <a href=""><i class="fas fa-camera"></i> Mark Attendance</a>
         <a href=""><i class="fas fa-list"></i> Attendance Details</a>
         <a href=""><i class="fas fa-cog"></i> Camera Configuration</a>
@@ -192,7 +192,7 @@
                     <p>Register Student</p>
                 </div>
                 <div class="card">
-                    <a href=""><i class="fas fa-user-friends"></i></a>
+                    <a href="{% url 'all_student_list' %}"><i class="fas fa-user-friends"></i></a>
                     <p>Authorize Student</p>
                 </div>
                 <div class="card">

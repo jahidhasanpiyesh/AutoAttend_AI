@@ -32,7 +32,7 @@ def register_student(request):
             except Exception as e:
                 messages.error(request, "Error decoding image. Please try again.")
                 print(f"Error decoding image: {e}")
-                return render(request, 'register_employee.html')
+                return render(request, 'register_student.html')
 
         # Create the Student instance
         student = Student(
@@ -57,3 +57,6 @@ def register_student(request):
             return render(request, 'register_student.html')
 
     return render(request, 'register_student.html')
+
+def all_student_list(request):
+    return render(request, 'all_student_list.html')
