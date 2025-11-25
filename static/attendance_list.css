@@ -1,0 +1,164 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+}
+
+/* =========================
+   CONTAINER & HEADER
+========================= */
+.container {
+    padding: 25px 20px 40px;
+    min-height: 100vh;
+}
+
+.heading {
+    text-align: center;
+    margin: 25px 0 35px;
+    color: #0056b3;
+    font-weight: 700;
+    font-size: 1.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* =========================
+   FILTER SECTION
+========================= */
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.filter-container .input-group {
+    flex: 1;
+    min-width: 230px;
+}
+
+.input-group .form-control {
+    border-radius: 6px 0 0 6px;
+    height: 45px;
+    font-size: 15px;
+}
+
+.input-group .btn-custom,
+.btn-success {
+    border-radius: 0 6px 6px 0;
+    padding: 0 18px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-custom {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+}
+
+.btn-custom:hover {
+    background: linear-gradient(135deg, #0056b3, #003d82);
+    color: #fff;
+}
+
+/* =========================
+   TABLE STYLING
+========================= */
+.table-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.table {
+    background: white;
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background: #0056b3;
+    color: white;
+    padding: 14px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.table tbody tr {
+    transition: 0.3s ease-in-out;
+}
+
+.table tbody tr:hover {
+    background: #eef3f9;
+}
+
+.table td {
+    vertical-align: middle;
+    text-align: center;
+    padding: 12px;
+    font-size: 15px;
+}
+
+/* Employee Image */
+.table img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff33;
+}
+
+/* =========================
+   FOOTER BACK ICON
+========================= */
+.footer {
+    margin-top: 35px;
+    text-align: left;
+}
+
+.back-icon {
+    padding: 10px 15px;
+    font-size: 1.6rem;
+    color: #007bff;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.3s ease-in-out;
+    border: 2px solid transparent;
+}
+
+.back-icon:hover {
+    color: #fff;
+    background: #0056b3;
+    border-color: #0056b3;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+    .heading {
+        font-size: 1.6rem;
+    }
+
+    .table td {
+        font-size: 14px;
+    }
+
+    .filter-container {
+        flex-direction: column;
+    }
+
+    .input-group .btn-custom,
+    .btn-success {
+        border-radius: 6px;
+        width: 100%;
+        margin-top: 5px;
+    }
+}
