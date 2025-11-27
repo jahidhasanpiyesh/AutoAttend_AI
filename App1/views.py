@@ -106,6 +106,13 @@ def stu_authorize(request, pk):
     
     return render(request, 'stu_authorize.html', {'stu': stu})
 
+# ----------------------------------------View for rendering the student detail page---------------------------
+@login_required
+@user_passes_test(is_admin)
+def stu_detail(request, pk):
+    stu = get_object_or_404(Student_Registration, pk=pk)
+    return render(request, 'stu_detail.html', {'stu': stu})
+
 # ----------------------------------------View for rendering the attendance list page---------------------------
 def attendance_list(request):
     return render(request, 'attendance_list.html')

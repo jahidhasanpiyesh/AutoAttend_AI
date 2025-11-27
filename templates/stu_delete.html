@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Student Confirmation</title>
+    <link rel="stylesheet" href="{% static 'stu_delete.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Employee</h1>
+        <p>Are you sure you want to delete {{ emp.name }}?</p>
+        <div class="actions">
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+                <a href="{% url 'emp-detail' emp.pk %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
