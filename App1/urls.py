@@ -12,4 +12,5 @@ urlpatterns = [
     path('stu_detail/<int:pk>/', views.stu_detail, name='stu_detail'),
     path('stu_delete/<int:pk>/delete/', views.stu_delete, name='stu_delete'),
     path('attendance_list/', views.attendance_list, name='attendance_list'),
+    path('camera_config/', views.camera_config_create, name='camera_config_create'),
 ]

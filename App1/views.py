@@ -1,10 +1,11 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from .models import Student_Registration
+from .models import Student_Registration, CameraConfiguration
 from django.contrib import messages
 from django.core.files.base import ContentFile
 import base64
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import authenticate, login, logout
+from django.db import IntegrityError
 # Create your views here.
 
 # ----------------------------------------Helper function to check if user is admin---------------------------
@@ -129,3 +130,34 @@ def stu_detail(request, pk):
 # ----------------------------------------View for rendering the attendance list page---------------------------
 def attendance_list(request):
     return render(request, 'attendance_list.html')
+
+
+# ---------------------------------- view for rendering the camera_config_list template page ---------------------------
+@login_required
+@user_passes_test(is_admin)
+def camera_config_create(request):
+    # Check if the request method is POST, indicating form submission
+    if request.method == "POST":
+        # Retrieve form data from the request
+        name = request.POST.get('name')
+        camera_source = request.POST.get('camera_source')
+        threshold = request.POST.get('threshold')
+
+        try:
+            # Save the data to the database using the CameraConfiguration model
+            CameraConfiguration.objects.create(
+                name=name,
+                camera_source=camera_source,
+                threshold=threshold,
+            )
+            # Redirect to the list of camera configurations after successful creation
+            return redirect('camera_config_list')
+
+        except IntegrityError:
+            # Handle the case where a configuration with the same name already exists
+            messages.error(request, "A configuration with this name already exists.")
+            # Render the form again to allow user to correct the error
+            return render(request, 'camera_config_form.html')
+
+    # Render the camera configuration form for GET requests
+    return render(request, 'camera_config_form.html')
