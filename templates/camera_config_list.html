@@ -34,7 +34,7 @@
                     <td>{{ config.threshold }}</td>
                     <td>
                         <a href="{% url 'camera_config_update' config.id %}" style="color: #FFD700;">Edit</a> |
-                        <a href="" style="color: #FFD700;">Delete</a>
+                        <a href="{% url 'camera_config_delete' config.id %}" style="color: #FFD700;">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}

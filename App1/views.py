@@ -195,3 +195,19 @@ def camera_config_update(request, pk):
     
     # Render the configuration form with the current configuration data for GET requests
     return render(request, 'camera_config_form.html', {'config': config})
+
+@login_required
+@user_passes_test(is_admin)
+def camera_config_delete(request, pk):
+    # Retrieve the specific configuration by primary key or return a 404 error if not found
+    config = get_object_or_404(CameraConfiguration, pk=pk)
+
+    # Check if the request method is POST, indicating confirmation of deletion
+    if request.method == "POST":
+        # Delete the record from the database
+        config.delete()  
+        # Redirect to the list of camera configurations after deletion
+        return redirect('camera_config_list')
+
+    # Render the delete confirmation template with the configuration data
+    return render(request, 'camera_config_delete.html', {'config': config})
